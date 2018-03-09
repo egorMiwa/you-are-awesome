@@ -17,8 +17,27 @@ const createProtoMagicObject = () => {
     obj.prototype =obj.__proto__;
     return obj;
 };
-const incrementor = () => {};
-const asyncIncrementor = () => {};
+
+
+var i=0;
+
+Function.prototype.valueOf = function () {
+    return i;
+}
+
+const incrementor = () => {
+    i++;
+    return incrementor;
+};
+
+var j =0;
+const asyncIncrementor = () => {
+    return new Promise((resolve) => {
+         j++; 
+        return j;  
+        })
+};
+
 const createIncrementer = () => {};
 
 // return same argument not earlier than in one second, and not later, than in two
