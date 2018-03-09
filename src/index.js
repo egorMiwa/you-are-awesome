@@ -52,7 +52,7 @@ setTimeout(() =>
 const getDeepPropertiesCount = () => {};
 const createSerializedObject = () => {};
 const toBuffer = () => {};
-const sortByProto = () => {
+const sortByProto = (mas) => {
     return mas.sort((a, b) => (a.__proto__ - b.__proto__));
 };
 
