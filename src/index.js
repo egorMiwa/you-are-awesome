@@ -33,23 +33,30 @@ const incrementor = () => {
 var j =0;
 const asyncIncrementor = () => {
     return new Promise((resolve) => {
-         j++; 
-        return j;  
-        })
+        return resolve(++j);
+    })
 };
 
-const createIncrementer = () => {};
+const createIncrementer = () => {
+    var obj = [];
+    obj.value = 0;
+    obj.next = () => { obj.value++; return obj; }
+    return obj;
+};
 
 // return same argument not earlier than in one second, and not later, than in two
-const returnBackInSecond = () => {
-
-setTimeout(() => 
-{
-    return arg;
-}, 1000);
-
+const returnBackInSecond = (param) => {
+    return new Promise(function (resolve, reject) {  
+            setTimeout(() => {
+                 return resolve(param)}, 1000);
+        
+    })
 };
-const getDeepPropertiesCount = () => {};
+
+const getDeepPropertiesCount = (obj) => {
+    obj = JSON.stringify(obj);
+    return obj.split("}", obj.length).length - 2;
+};
 
 const createSerializedObject = () => {
    
